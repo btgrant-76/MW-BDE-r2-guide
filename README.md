@@ -43,8 +43,8 @@ There may be extras of some components (diodes, screws, standoffs, etc) just in 
 | 1x Rotary Encoder                  | ![EC11](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/04/Encoder.jpg?resize=200%2C200) |
 | 1x 6x6mm Button                    | ![a.k.a. tact switch, momentary switch](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/04/Reset-Button.jpg?resize=200%2C200) |
 | 1x Encoder Knob                    | ![Both colors pictured, but kit only comes with one.](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/04/Knobs.jpg?resize=200%2C200) |
-| 8x M2 Standoffs                    | ![Brass standoffs](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/07/20210702_180318.jpg?resize=200%2C200) |
-| 16x M2x5mm Screws                  | ![Phillips head, black](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/07/20210702_180354.jpg?resize=200%2C200) |
+| 8x M2x12mm Standoffs                    | ![Brass standoffs](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/07/20210702_180318.jpg?resize=200%2C200) |
+| 16x M2x4mm Screws                  | ![Phillips head, black](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/07/20210702_180354.jpg?resize=200%2C200) |
 | 4x Rubber Feet                     | ![a.k.a. bumpons, bumpers](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/04/feet.png?resize=200%2C146)|
 
 #### Other Components
@@ -102,7 +102,7 @@ Once the firmware has been downloaded, [follow these instructions to program (fl
 
 [Follow these instructions](https://github.com/lesshonor/bde-rev2-zmk-config/blob/main/README.md).
 
-+Note that [specific hardware](https://zmk.dev/docs/hardware), like a [nice!nano](https://nicekeyboards.com/nice-nano/), is required to use ZMK firmware. ZMK is not compatible with any 8-bit AVR microcontrollers (Pro Micro, Elite-C, atmega328p, etc).
+Note that [specific hardware](https://zmk.dev/docs/hardware), like a [nice!nano](https://nicekeyboards.com/nice-nano/), is required to use ZMK firmware. ZMK is not compatible with any 8-bit AVR microcontrollers (Pro Micro, Elite-C, atmega328p, etc).
 
 ---
 
@@ -144,7 +144,7 @@ Avoid accidentally connecting the metal legs/solder joints of two different diod
 
 If using pin headers, solder the Pro Micro to the bottom of the PCB [just like step 5 of the MurphPad build guide](https://mechwild.com/guides/build-guides/murphpad-build-guide/#step5) and clip the pins.
 
-If using SIP sockets, feel free to reinsert the Pro Micro if you took it out after soldering the pins in. (This is technically optional until step 8.)
+If using SIP sockets, feel free to reinsert the Pro Micro if you took it out after soldering the pins in; this is technically optional until step 8.
 
 ### Step 5X: RGB Strip
 
