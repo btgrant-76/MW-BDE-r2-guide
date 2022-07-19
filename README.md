@@ -60,7 +60,7 @@ There may be extras of some components (sockets, LEDs, etc) just in case.
 | 90x 0305 Mill-Max sockets                   | (unavailable)        | Used for making the switches hot-swappable. |
 | 90x 7305 Mill-Max sockets                   | (unavailable)        | Used for making the switches hot-swappable. More expensive and more difficult to solder. |
 | SIP socket (18x positions) & 18x brass pins | ![Photo of SIP socket with Mill-Max pins](https://i0.wp.com/mechwild.com/wp-content/uploads/2021/10/sockets_pins.png?resize=200%2C200) | Used to socket the Pro Micro, which makes it removable without desoldering. |
-| 1x Diode Bender                             | (unavailable)        | Helps you [bend multiple diodes at a time consistently](https://mechwild.com/guides/general/diodes/). |
+| 1x Diode Bender                             | ![Multiple diode benders pictured](https://media.discordapp.net/attachments/837441710698004531/998729928654737488/IMG_9335.jpg?width=200&height=150)        | Helps you [bend multiple diodes at a time consistently](https://mechwild.com/guides/general/diodes/). |
 
 ### Step 1: Program, Test, and Solder Pins on Pro Micro[^1]
 
