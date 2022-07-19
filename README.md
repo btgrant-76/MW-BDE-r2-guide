@@ -81,7 +81,7 @@ Don't skip this step; you're only postponing the inevitable, and if it turns out
 
 When you plug the controller in before flashing, it should show up to your OS as a new device:
 
-| Windows                                  | Mac                              | Linux                           |
+| Windows                                  | macOS                            | Linux                           |
 | -----------------------------------------| -------------------------------- | --------------------------------|
 | `Settings > Bluetooth and other devices` | `System Preferences > Bluetooth` | `dmesg -w` (requires superuser) |
 
