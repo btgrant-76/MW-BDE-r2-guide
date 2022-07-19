@@ -76,6 +76,8 @@ There may be extras of some components (sockets, LEDs, etc) just in case.
 
 ### Step 1A: Program Pro Micro
 
+:warning: **You must program the controller with BDE Rev2 firmware before it will work as a keyboard.** :warning:
+
 Don't skip this step; you're only postponing the inevitable, and if it turns out your controller is defective you'll regret it.
 
 When you plug the controller in before flashing, it should show up to your OS as a new device:
@@ -99,6 +101,8 @@ Once the firmware has been downloaded, [follow these instructions to program (fl
 #### ...using ZMK firmware
 
 [Follow these instructions](https://github.com/lesshonor/bde-rev2-zmk-config/blob/main/README.md).
+
++Note that [specific hardware](https://zmk.dev/docs/hardware), like a [nice!nano](https://nicekeyboards.com/nice-nano/), is required to use ZMK firmware. ZMK is not compatible with any 8-bit AVR microcontrollers (Pro Micro, Elite-C, atmega328p, etc).
 
 ---
 
@@ -126,13 +130,13 @@ The [Visual Guide to Socket a Microcontroller](https://github.com/filterpaper/fi
 
 Insert the 6x6mm button into the spot marked `SW1` on the bottom of the PCB and solder it in place.
 
-Once it is soldered on, you can press this button once to reboot the board, and twice to reset to bootloader for flashing[^3]. 
+Once it is soldered on, you can press this button once to reboot the board, and twice to reset to bootloader for flashing[^3].
 
 ### Step 3: Diodes
 
 [Follow these instructions](https://mechwild.com/guides/general/diodes/). Like the reset button, the diodes are inserted on the bottom of the PCB.
 
-:bulb: Avoid accidentally connecting the metal legs/solder joints of two different diodes. If they aren't kept separate, you may end up with unintentional key presses.
+Avoid accidentally connecting the metal legs/solder joints of two different diodes. If they aren't kept separate, you may end up with unintentional key presses.
 
 ### Step 4: Attach Pro Micro to PCB
 
@@ -172,7 +176,7 @@ The 5V, RGB and GND pads aren't labeled on the BDE PCB; this image illustrates w
 
 ![RGB, 5V & GND pads](https://cdn.discordapp.com/attachments/837441710698004531/937861235456741396/IMG_29222.jpg)
 
-1. Peel apart the red, green and white wires far down enough that they can be manipulated separately.
+1. If the colored wires are stuck together, peel them far enough apart to work with separately.
 2. Cut some amount of insulation away from each wire and thread the metal core through the PCB.
    - Wire strippers are the intended tool for this job, but a pair of fingernail clippers, scissors, or even flush cutters and a very careful hand can accomplish the same goal.
    - If using stranded wire, twist the metal core wires together to make them easier to work with.
@@ -181,7 +185,7 @@ Cutting more of the insulation off may make things easier, but make sure the met
 
 :warning: **Not keeping the metal wires separate may stop the keyboard from working!** :warning:
 
-Note that the wires between the pads and the RGB strip will end up *crossing over* each other and the center, RGB wire. This image illustrates a completed, working example: 
+Note that the wires between the PCB and the strip will end up *crossing over* each other and the central RGB Data wire. This image illustrates a completed, working example:
 
 ![Cross the wires, Peter!](https://cdn.discordapp.com/attachments/837441710698004531/940402438098280459/B58769AB-16DD-4473-BA54-7A74EC036EAA.jpg)
 
@@ -189,7 +193,7 @@ Note that the wires between the pads and the RGB strip will end up *crossing ove
 
 This is the first part that goes on the top of the PCB. [Just like step 6 of the MurphPad build guide](https://mechwild.com/guides/build-guides/murphpad-build-guide/#step6):
 
-1. Solder the OLED module to the small pin header it was packaged with. (If the pin header has one too many pins, break or clip off the extra.)
+1. Solder the OLED module to the small pin header it was packaged with; if the pin header has one too many pins, break or clip off the extra.
 2. Pry the plastic spacer off with tweezers.
 3. Line the OLED module up well, and solder it into place.
 4. Clip the header pins on top and bottom.
@@ -210,7 +214,7 @@ If you didn't already attach the Pro Micro to the PCB in step 4, do it now.
 
 #### Testing in Vial and VIA
 
-[Vial](https://get.vial.today) and [VIA](https://usevia.app/) have dedicated matrix testing modes that can be enabled by [sideloading the BDE Rev2 layout definition](https://docs.cannonkeys.com/via-json-loading/). This mode takes a lot of guesswork out of the testing process.
+[Vial](https://get.vial.today) and [VIA](https://usevia.app/) have dedicated matrix testing modes, which take a lot of guesswork out of the testing process. Using them is strongly recommended.
 
 | Program | Screenshot |
 | ---- | ---- |
@@ -245,7 +249,11 @@ If you did not purchase these sockets, [skip to step 10](#step-10-install-switch
 2. Place this plate + switch assembly onto the PCB. Verify all eight switch pins are sticking through the holes in the PCB.
 3. Continue inserting switches into the plate, making sure both pins on each switch poke through the holes in the PCB. It may be necessary to hold the PCB in place to prevent it from being pushed off, especially in the beginning.
 
-If you did not install Mill-Max sockets earlier, you will need to solder the switches after putting them in place.
+It can be helpful to balance the PCB and plate perpendicular to your work surface, then insert the switches one row at a time. Look down between the two sides to verify pin alignment as each switch is inserted.
+
+If you are not using Mill-Max sockets, you will need to solder the switches after putting them in place.
+
+If positions that worked perfectly in [#step-7-plug-in-and-test](step 7) begin misbehaving after switches are inserted, make sure neither of the switch pins were accidentally bent against the PCB instead of going through the holes. This is more common with Mill-Max sockets as they are harder to align.
 
 ### Step 11: Assemble
 
@@ -255,7 +263,7 @@ If you did not install Mill-Max sockets earlier, you will need to solder the swi
 
 If you flashed with [Vial](https://get.vial.today) or [VIA](https://usevia.app/) firmware, you may use those utilities to dynamically remap your keys without having to reflash. Note that the Vial program is backwards-compatible with VIA firmware[^4], if the VIA browser app is not a reasonable option.
 
-[^1]: More precisely, a Pro Micro-compatible controller e.g. a nice!nano. It might not be a Pro Micro per se, but for the sake of simplicity this guide will refer to all compatible controllers of this type as "Pro Micros" or "PMs".
+[^1]: More precisely: a Pro Micro pin-compatible microcontroller (e.g. Elite-C, nice!nano). It might not be a Pro Micro per se, but for the sake of simplicity this guide will refer to all microcontrollers of this type as "Pro Micros" or "PMs".
 
 [^2]: *Theoretically*, it might be possible to power the OLED using the `B0` pin by modifying the firmware to pull that pin high on boot and keep it that way while the board runs. Testing this workaround is left as an exercise for adventurous readers. The author(s) of this guide and MechWild as a company eschew all responsibility for any such experiments, unless it ends up working perfectly.
 
