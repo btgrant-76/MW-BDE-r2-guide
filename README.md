@@ -74,9 +74,8 @@ There may be extras of some components (sockets, LEDs, etc) just in case.
 
 <!-- TODO: most of the info below SHOULD be migrated to a general guide that also contains detailed info on known problems and specific troubleshooting steps. (e.g. power-only cables, USB-C Alt Mode problems, "NO DRIVER" for flashing on Windows...) -->
 
-#### Program Controller
+### Step 1A: Program Pro Micro
 
-:warning: **You must program the controller with BDE Rev2 firmware before it will work as a keyboard.** :warning:  
 Don't skip this step; you're only postponing the inevitable, and if it turns out your controller is defective you'll regret it.
 
 When you plug the controller in before flashing, it should show up to your OS as a new device:
@@ -89,7 +88,7 @@ If you don't see anything new here, you may need to try a different cable or USB
 
 ---
 
-##### ...using QMK firmware
+#### ...using QMK firmware
 
 Recent [Vial](https://get.vial.today) and [VIA](https://usevia.app/) firmware builds are downloadable from [MechWild's firmware repository](https://github.com/MechWild/mw_firmware).
 
@@ -97,25 +96,25 @@ Firmware can also be generated with [QMK Configurator](https://github.com/MechWi
 
 Once the firmware has been downloaded, [follow these instructions to program (flash) the Pro Micro](https://mechwild.com/guides/general/flashing-a-pro-micro/).
 
-##### ...using ZMK firmware
+#### ...using ZMK firmware
 
 [Follow these instructions](https://github.com/lesshonor/bde-rev2-zmk-config/blob/main/README.md).
 
 ---
 
-#### Test Pro Micro
+### Step 1B: Test Pro Micro
 
 Once the firmware has been flashed, verify that the controller now shows up to your computer as a keyboard named `BDE Rev2`.
 
 If the controller still shows up as the original device, the flash did not work. If you are using QMK Toolbox, pay close attention to the messages in its console to try and figure out what went wrong. Just because the program says `Flash complete` does not mean the flash completed *successfully!*
 
-#### Solder Pins to Pro Micro
+### Step 1C: Solder Pins to Pro Micro
 
-##### ...using header pins
+#### ...using header pins
 
 [The guide for preparing the Pro Micro](https://mechwild.com/guides/general/flashing-a-pro-micro/) also has images of how it is soldered. Since the controller is attached to the bottom of the PCB, it might look like it is upside down as you install it.
 
-##### ...using Mill-Max pins and SIP sockets
+#### ...using Mill-Max pins and SIP sockets
 
 The [Visual Guide to Socket a Microcontroller](https://github.com/filterpaper/filterpaper.github.io/blob/main/socket-mcu.md) demonstrates the process with the correct orientation.
 
@@ -141,11 +140,11 @@ Once it is soldered on, you can press this button once to reboot the board, and 
 
 If using pin headers, solder the Pro Micro to the bottom of the PCB [just like step 5 of the MurphPad build guide](https://mechwild.com/guides/build-guides/murphpad-build-guide/#step5) and clip the pins.
 
-If using SIP sockets, feel free to reinsert the Pro Micro if you took it out after soldering the pins in. (This is technically optional until step 7.)
+If using SIP sockets, feel free to reinsert the Pro Micro if you took it out after soldering the pins in. (This is technically optional until step 8.)
 
-### Step 4X: RGB Strip
+### Step 5X: RGB Strip
 
-If you do not have an RGB strip, [skip to step 5](#step-5-oled).
+If you do not have an RGB strip, [skip to step 6](#step-6-oled).
 
 The RGB strip can be attached at any time before soldering switches in—or at any time if you use mill-max sockets to make the board hotswap. However, it is the only part left that attaches to the back of the board and is soldered on the top.
 
@@ -153,7 +152,7 @@ The RGB strip can be attached at any time before soldering switches in—or at a
 
 ---
 
-#### ...with a connector already soldered on
+#### ...with a connector attached
 
 The strip should be wired as follows:
 
@@ -169,7 +168,7 @@ Using the same color scheme the presoldered strip uses is optional, but be sure 
 
 ---
 
-The 5V, RGB and GND pads aren't labeled on the BDE PCB; this image illustrates which is which. 
+The 5V, RGB and GND pads aren't labeled on the BDE PCB; this image illustrates which is which.
 
 ![RGB, 5V & GND pads](https://cdn.discordapp.com/attachments/837441710698004531/937861235456741396/IMG_29222.jpg)
 
@@ -186,7 +185,7 @@ Note that the wires between the pads and the RGB strip will end up *crossing ove
 
 ![Cross the wires, Peter!](https://cdn.discordapp.com/attachments/837441710698004531/940402438098280459/B58769AB-16DD-4473-BA54-7A74EC036EAA.jpg)
 
-### Step 5: OLED
+### Step 6: OLED
 
 This is the first part that goes on the top of the PCB. [Just like step 6 of the MurphPad build guide](https://mechwild.com/guides/build-guides/murphpad-build-guide/#step6):
 
@@ -195,13 +194,13 @@ This is the first part that goes on the top of the PCB. [Just like step 6 of the
 3. Line the OLED module up well, and solder it into place.
 4. Clip the header pins on top and bottom.
 
-### Step 6X: Encoder
+### Step 7X: Encoder
 
-If you are not using an encoder, [skip to step 7](#step-7-plug-in-and-test).
+If you are not using an encoder, [skip to step 8](#step-8-plug-in-and-test).
 
 Insert into the top of the PCB and solder. [Just like step 7 of the MurphPad build guide](https://mechwild.com/guides/build-guides/murphpad-build-guide/#step7). You may need to bend some pins back if they were bent out of place during shipment.
 
-### Step 7: Plug In and Test
+### Step 8: Plug In and Test
 
 If you didn't already attach the Pro Micro to the PCB in step 4, do it now.
 
@@ -224,9 +223,9 @@ The encoder turn won't show on the matrix, but the press should.
 
 Load [QMK Configurator with the expected keymap](https://config.qmk.fm/) in one tab and [QMK Configurator in test mode](https://config.qmk.fm/#/test) in another, and make sure all the keys do what the keymap expects. Keep an eye out for layer keys.
 
-### Step 8X: Install 0305/7305 Mill-Max Sockets
+### Step 9X: Install 0305/7305 Mill-Max Sockets
 
-If you did not purchase these sockets, [skip to step 9](#step-9-install-switches).
+If you did not purchase these sockets, [skip to step 10](#step-10-install-switches).
 
 #### ...by taping them to the PCB
 
@@ -240,7 +239,7 @@ If you did not purchase these sockets, [skip to step 9](#step-9-install-switches
 
 [Follow these instructions](https://docs.splitkb.com/hc/en-us/articles/360012930919-How-do-I-install-Mill-Max-Hot-Swap-Sockets-).
 
-### Step 9: Install Switches
+### Step 10: Install Switches
 
 1. Insert four switches into the top (switch) plate, one in or near each corner. These should click into place.
 2. Place this plate + switch assembly onto the PCB. Verify all eight switch pins are sticking through the holes in the PCB.
@@ -248,11 +247,11 @@ If you did not purchase these sockets, [skip to step 9](#step-9-install-switches
 
 If you did not install Mill-Max sockets earlier, you will need to solder the switches after putting them in place.
 
-### Step 10: Assemble
+### Step 11: Assemble
 
 [Like the Mercutio, the BDE Rev2 uses a sandwich mount](https://mechwild.com/guides/build-guides/mercutio-build-guide/#step16). The bottom and top plates are screwed together via standoffs, and the PCB hangs from the switches between them. Screw the standoffs onto the bottom plate, then set the plate + PCB assembly on top and add the final screws.
 
-### Step 11: Customize and Enjoy
+### Step 12: Customize and Enjoy
 
 If you flashed with [Vial](https://get.vial.today) or [VIA](https://usevia.app/) firmware, you may use those utilities to dynamically remap your keys without having to reflash. Note that the Vial program is backwards-compatible with VIA firmware[^4], if the VIA browser app is not a reasonable option.
 
