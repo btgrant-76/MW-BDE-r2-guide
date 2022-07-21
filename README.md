@@ -120,7 +120,7 @@ If it still shows up as the original device, the flash did not work. If you are 
 
 #### ...using Mill-Max pins and SIP sockets
 
-The [Visual Guide to Socket a Microcontroller](https://github.com/filterpaper/filterpaper.github.io/blob/main/socket-mcu.md) demonstrates the process with the correct orientation.
+The [Visual Guide to Socket a Microcontroller](https://filterpaper.github.io/socket-mcu.html) demonstrates the process with the correct orientation.
 
 - Painter's tape or masking tape can be used instead of polyimide ("Kapton") tape.
 - The SIP sockets may have been shipped as one long row; break or cut it at the right length.
