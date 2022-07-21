@@ -76,11 +76,11 @@ There may be extras of some components (sockets, LEDs, etc) just in case.
 
 ### Step 1A: Program Pro Micro
 
-:warning: **You must program the controller with BDE Rev2 firmware before it will work as a keyboard.** :warning:
+:warning: **You must program the Pro Micro with BDE Rev2 firmware before it will work as a keyboard.** :warning:
 
-Don't skip this step; you're only postponing the inevitable, and if it turns out your controller is defective you'll regret it.
+Don't skip this step; you're only postponing the inevitable, and if it turns out your microcontroller is defective you'll regret it.
 
-When you plug the controller in before flashing, it should show up to your OS as a new device:
+When you plug the PM in before flashing, it should show up to your OS as a new device:
 
 | Windows                                  | macOS                            | Linux                           |
 | -----------------------------------------| -------------------------------- | --------------------------------|
@@ -108,15 +108,15 @@ Note that [specific hardware](https://zmk.dev/docs/hardware), like a [nice!nano]
 
 ### Step 1B: Test Pro Micro
 
-Once the firmware has been flashed, verify that the controller now shows up to your computer as a keyboard named `BDE Rev2`.
+Once the firmware has been flashed, verify that the Pro Micro now shows up to your computer as a keyboard named `BDE Rev2`.
 
-If the controller still shows up as the original device, the flash did not work. If you are using QMK Toolbox, pay close attention to the messages in its console to try and figure out what went wrong. Just because the program says `Flash complete` does not mean the flash completed *successfully!*
+If it still shows up as the original device, the flash did not work. If you are using QMK Toolbox, pay close attention to the messages in its console to try and figure out what went wrong. Just because the program says `Flash complete` does not mean the flash completed *successfully!*
 
 ### Step 1C: Solder Pins to Pro Micro
 
 #### ...using header pins
 
-[The guide for preparing the Pro Micro](https://mechwild.com/guides/general/flashing-a-pro-micro/) also has images of how it is soldered. Since the controller is attached to the bottom of the PCB, it might look like it is upside down as you install it.
+[The guide for preparing the Pro Micro](https://mechwild.com/guides/general/flashing-a-pro-micro/) also has images of how it is soldered. Since the microcontroller is attached to the bottom of the PCB, it might look like it is upside down as you install it.
 
 #### ...using Mill-Max pins and SIP sockets
 
