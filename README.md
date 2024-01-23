@@ -100,7 +100,7 @@ Once the firmware has been downloaded, [follow these instructions to program (fl
 
 #### ...using ZMK firmware
 
-[Follow these instructions](https://github.com/lesshonor/bde-rev2-zmk-config/blob/main/README.md).
+[Follow these instructions](https://github.com/lesshonor/mechwild-zmk-config/blob/main/README.md).
 
 Note that [specific hardware](https://zmk.dev/docs/hardware), like a [nice!nano](https://nicekeyboards.com/nice-nano/), is required to use ZMK firmware. ZMK is not compatible with any 8-bit AVR microcontrollers (Pro Micro, Elite-C, atmega328p, etc).
 
@@ -116,7 +116,7 @@ If it still shows up as the original device, the flash did not work. If you are 
 
 #### ...using header pins
 
-[The guide for preparing the Pro Micro](https://mechwild.com/guides/general/flashing-a-pro-micro/) also has images of how it is soldered. Since the microcontroller is attached to the bottom of the PCB, it might look like it is upside down as you install it.
+[The guide for preparing the Pro Micro](https://mechwild.com/guides/general/flashing-a-pro-micro/) also has images of how it is soldered. Since the PM is attached to the bottom of the PCB, it might look like it is upside down as you install it.
 
 #### ...using Mill-Max pins and SIP sockets
 
@@ -134,7 +134,7 @@ Once it is soldered on, you can press this button once to reboot the board, and 
 
 ### Step 3: Diodes
 
-[Follow these instructions](https://mechwild.com/guides/general/diodes/). Like the reset button, the diodes are inserted on the bottom of the PCB.
+[Follow these instructions](https://mechwild.com/guides/general/diodes/). Like the reset button, the diodes are inserted on the bottom of the PCB and soldered from the top.
 
 Avoid accidentally connecting the metal legs/solder joints of two different diodes. If they aren't kept separate, you may end up with unintentional key presses.
 
@@ -225,7 +225,7 @@ The encoder turn won't show on the matrix, but the press should.
 
 #### Testing in QMK Configurator
 
-Load [QMK Configurator with the expected keymap](https://config.qmk.fm/) in one tab and [QMK Configurator in test mode](https://config.qmk.fm/#/test) in another, and make sure all the keys do what the keymap expects. Keep an eye out for layer keys.
+Load [QMK Configurator with the expected keymap](https://config.qmk.fm/#/mechwild/bde/rev2/LAYOUT) in one tab and [QMK Configurator in test mode](https://config.qmk.fm/#/test) in another, and make sure all the keys do what the keymap expects. Keep an eye out for layer keys.
 
 ### Step 9X: Install 0305/7305 Mill-Max Sockets
 
@@ -253,7 +253,7 @@ It can be helpful to balance the PCB and plate perpendicular to your work surfac
 
 If you are not using Mill-Max sockets, you will need to solder the switches after putting them in place.
 
-If positions that worked perfectly in [#step-7-plug-in-and-test](step 7) begin misbehaving after switches are inserted, make sure neither of the switch pins were accidentally bent against the PCB instead of going through the holes. This is more common with Mill-Max sockets as they are harder to align.
+If positions that worked perfectly in [step 8](#step-8-plug-in-and-test) begin misbehaving after switches are inserted, make sure neither of the switch pins were accidentally bent against the PCB instead of going through the holes. This is more common with Mill-Max sockets as they are harder to align.
 
 ### Step 11: Assemble
 
@@ -261,12 +261,14 @@ If positions that worked perfectly in [#step-7-plug-in-and-test](step 7) begin m
 
 ### Step 12: Customize and Enjoy
 
-If you flashed with [Vial](https://get.vial.today) or [VIA](https://usevia.app/) firmware, you may use those utilities to dynamically remap your keys without having to reflash. Note that the Vial program is backwards-compatible with VIA firmware[^4], if the VIA browser app is not a reasonable option.
+If you flashed with [Vial](https://get.vial.today) or [VIA](https://usevia.app/) firmware, you may use those utilities to dynamically remap your keys without having to reflash.
 
-[^1]: More precisely: a Pro Micro pin-compatible microcontroller (e.g. Elite-C, nice!nano). It might not be a Pro Micro per se, but for the sake of simplicity this guide will refer to all microcontrollers of this type as "Pro Micros" or "PMs".
+No matter how you choose to customize your keyboard, remember to save a copy of your changes and back it up. VIA, Vial and QMK Configurator can all export your layout into a convenient JSON-like file for easy reloading.
+
+To paraphrase a wise man: [if you don't have least two copies of it, it doesn't really exist.](https://www.theguardian.com/technology/2008/feb/14/email.yahoo)
+
+[^1]: More precisely: a development board with a Pro Micro pin-compatible microcontroller (e.g. Elite-C, nice!nano). It might not be a Pro Micro per se, but for the sake of simplicity this guide will refer to all dev boards of this type as "Pro Micros" or "PMs".
 
 [^2]: *Theoretically*, it might be possible to power the OLED using the `B0` pin by modifying the firmware to pull that pin high on boot and keep it that way while the board runs. Testing this workaround is left as an exercise for adventurous readers. The author(s) of this guide and MechWild as a company eschew all responsibility for any such experiments, unless it ends up working perfectly.
 
 [^3]: Note that entering bootloader this way will not clear the EEPROM. This matters if you're trying to reflash because something is messed up.
-
-[^4]: As of Vial 0.6 and VIA 1.3.1. This may not hold true forever.
